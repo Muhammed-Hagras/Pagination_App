@@ -42,7 +42,7 @@ function App() {
     <>
       <div className="container text-center py-3 px-5">
         <h2>Pagination</h2>
-        <h2>Blog Posts</h2>
+        <h2>Products</h2>
         <Posts posts={currentPosts} loading={loading} />
         <Pagination
           postsPerPage={postsPerPage}
