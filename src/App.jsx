@@ -8,11 +8,11 @@ function App() {
   const [posts, setposts] = useState([]);
   const [loading, setloading] = useState(false);
   const [currentPage, setcurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(5);
   useEffect(() => {
     const fetchPosts = async () => {
       setloading(true);
-      const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+      const res = await axios.get("https://fakestoreapi.com/products");
       setposts(res.data);
       setloading(false);
     };
@@ -25,6 +25,7 @@ function App() {
   const currentPosts = posts.slice(lastIndex, firstIndex);
 
   const paginate = (pageNumber) => setcurrentPage(pageNumber);
+
   const previousPage = () => {
     if (currentPage !== 1) {
       setcurrentPage(currentPage - 1);
@@ -47,6 +48,7 @@ function App() {
           postsPerPage={postsPerPage}
           totalPosts={posts.length}
           paginate={paginate}
+          currentPage={currentPage}
           previousPage={previousPage}
           nextPage={nextPage}
         />
